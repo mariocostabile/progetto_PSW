@@ -1,4 +1,4 @@
-package psw.psw_ecommerce_2025_ij.api.entitiesDTO;
+package psw.psw_ecommerce_2025_ij.api.DAO;
 
 import jakarta.validation.constraints.*;
 import lombok.Getter;

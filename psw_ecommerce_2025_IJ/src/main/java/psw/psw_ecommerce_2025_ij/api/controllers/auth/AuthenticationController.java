@@ -7,9 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-import psw.psw_ecommerce_2025_ij.api.entitiesDTO.LoginBody;
-import psw.psw_ecommerce_2025_ij.api.entitiesDTO.LoginResponse;
-import psw.psw_ecommerce_2025_ij.api.entitiesDTO.RegistrationBody;
+import psw.psw_ecommerce_2025_ij.api.DAO.LoginBody;
+import psw.psw_ecommerce_2025_ij.api.DAO.LoginResponse;
+import psw.psw_ecommerce_2025_ij.api.DAO.RegistrationBody;
 import psw.psw_ecommerce_2025_ij.entities.LocalUser;
 import psw.psw_ecommerce_2025_ij.services.UserService;
 

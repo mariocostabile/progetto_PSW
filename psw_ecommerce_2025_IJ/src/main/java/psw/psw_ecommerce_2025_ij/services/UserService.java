@@ -2,8 +2,8 @@ package psw.psw_ecommerce_2025_ij.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import psw.psw_ecommerce_2025_ij.api.entitiesDTO.LoginBody;
-import psw.psw_ecommerce_2025_ij.api.entitiesDTO.RegistrationBody;
+import psw.psw_ecommerce_2025_ij.api.DAO.LoginBody;
+import psw.psw_ecommerce_2025_ij.api.DAO.RegistrationBody;
 import psw.psw_ecommerce_2025_ij.entities.LocalUser;
 import psw.psw_ecommerce_2025_ij.entities.Role;
 import psw.psw_ecommerce_2025_ij.exception.UserAlreadyExistsException;

@@ -36,7 +36,7 @@ public class JWTRequestFilter extends OncePerRequestFilter {
         if (tokenHeader != null && tokenHeader.startsWith("Bearer ")) {
             String token = tokenHeader.substring(7); //7 caratteri di Bearer+spazio
             try {
-                String username = jwtService.getUsername(token);
+                String username = jwtService.getUsername(token); //prendo l'username dal token
                 Optional<LocalUser> opUser = userRepo.findByUsernameIgnoreCase(username);
                 if(opUser.isPresent()){ //se user è presente faccio l'autenticazione
                     LocalUser localUser = opUser.get();
