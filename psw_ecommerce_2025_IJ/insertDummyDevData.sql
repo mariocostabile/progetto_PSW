@@ -14,6 +14,9 @@ DO $$
         order3 INT;
         order4 INT;
         order5 INT;
+        categoryId1 INT;
+        categoryId2 INT;
+        categoryId3 INT;
     BEGIN
         -- Elimina i dati esistenti
         DELETE FROM web_order_quantities;
@@ -21,15 +24,28 @@ DO $$
         DELETE FROM inventory;
         DELETE FROM product;
         DELETE FROM address;
+        DELETE FROM category;
+
+        -- Inserisci le categorie
+        INSERT INTO category (name)
+        VALUES
+            ('Electronics'),
+            ('Books'),
+            ('Clothing');
+
+        -- Assegna gli id delle categorie a variabili
+        SELECT id INTO categoryId1 FROM category WHERE name = 'Electronics' LIMIT 1;
+        SELECT id INTO categoryId2 FROM category WHERE name = 'Books' LIMIT 1;
+        SELECT id INTO categoryId3 FROM category WHERE name = 'Clothing' LIMIT 1;
 
         -- Inserisci i prodotti
-        INSERT INTO product (name, short_description, long_description, price)
+        INSERT INTO product (name, short_description, long_description, price, category_id)
         VALUES
-            ('Product #1', 'Product one short description.', 'This is a very long description of product #1.', 5.50),
-            ('Product #2', 'Product two short description.', 'This is a very long description of product #2.', 10.56),
-            ('Product #3', 'Product three short description.', 'This is a very long description of product #3.', 2.74),
-            ('Product #4', 'Product four short description.', 'This is a very long description of product #4.', 15.69),
-            ('Product #5', 'Product five short description.', 'This is a very long description of product #5.', 42.59);
+            ('Product #1', 'Product one short description.', 'This is a very long description of product #1.', 5.50, categoryId1),
+            ('Product #2', 'Product two short description.', 'This is a very long description of product #2.', 10.56, categoryId2),
+            ('Product #3', 'Product three short description.', 'This is a very long description of product #3.', 2.74, categoryId3),
+            ('Product #4', 'Product four short description.', 'This is a very long description of product #4.', 15.69, categoryId1),
+            ('Product #5', 'Product five short description.', 'This is a very long description of product #5.', 42.59, categoryId3);
 
         -- Assegna gli id dei prodotti a variabili
         SELECT id INTO product1 FROM product WHERE name = 'Product #1' LIMIT 1;
@@ -88,3 +104,4 @@ DO $$
             (order5, product1, 5);
 
     END $$;
+

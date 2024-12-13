@@ -27,7 +27,7 @@ public class WebOrder {
 
     @OneToMany(mappedBy = "webOrder", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<WebOrderQuantities> webOrderQuantities = new ArrayList<>();
-
     //mancano i prodotti contenuti nell'ordine, faccio un'altraa tabella perché i tipo mappa non vanno bene
+
 
 }
