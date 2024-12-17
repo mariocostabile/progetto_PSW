@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import psw.psw_ecommerce_2025_ij.entities.LocalUser;
 import psw.psw_ecommerce_2025_ij.repositories.UserRepo;
-import psw.psw_ecommerce_2025_ij.services.JWTService;
+//import psw.psw_ecommerce_2025_ij.services.JWTService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,8 +24,8 @@ import java.util.Optional;
 @Component
 public class JWTRequestFilter extends OncePerRequestFilter {
 
-    @Autowired
-    private JWTService jwtService;
+    //@Autowired
+    //private JWTService jwtService;
 
     @Autowired
     private UserRepo userRepo;
@@ -36,7 +36,7 @@ public class JWTRequestFilter extends OncePerRequestFilter {
         if (tokenHeader != null && tokenHeader.startsWith("Bearer ")) {
             String token = tokenHeader.substring(7); //7 caratteri di Bearer+spazio
             try {
-                String username = jwtService.getUsername(token); //prendo l'username dal token
+                String username = "user" /*jwtService.getUsername(token)*/; //prendo l'username dal token
                 Optional<LocalUser> opUser = userRepo.findByUsernameIgnoreCase(username);
                 if(opUser.isPresent()){ //se user è presente faccio l'autenticazione
                     LocalUser localUser = opUser.get();

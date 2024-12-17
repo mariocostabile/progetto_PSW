@@ -18,8 +18,8 @@ public class UserService {
     private UserRepo userRepo;
     @Autowired
     private EncryptionService encryptionService;
-    @Autowired
-    private JWTService jwtService;
+//    @Autowired
+//    private JWTService jwtService;
 
     public LocalUser registerUser(RegistrationBody registrationBody) throws UserAlreadyExistsException {
         if(userRepo.findByEmailIgnoreCase(registrationBody.getEmail()).isPresent()
@@ -42,7 +42,8 @@ public class UserService {
         if(opUser.isPresent()){
             LocalUser user = opUser.get();
             if(encryptionService.verifyPassword(loginBody.getPassword(), user.getPassword())){
-                return jwtService.generateJWT(user);
+                //return jwtService.generateJWT(user);
+                return "Ciao";
             }
         }
         return null;

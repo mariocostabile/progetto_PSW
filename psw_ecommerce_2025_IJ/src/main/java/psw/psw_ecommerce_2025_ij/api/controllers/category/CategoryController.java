@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import psw.psw_ecommerce_2025_ij.api.DAO.CategoryBody;
 import psw.psw_ecommerce_2025_ij.entities.Category;
@@ -27,7 +28,7 @@ public class CategoryController {
     }
 
     @PostMapping("/add")
-    public void addCategory(@Valid @RequestBody CategoryBody categoryBody) {
-        categoryService.addCategory(categoryBody);
+    public ResponseEntity<Category> addCategory(@Valid @RequestBody CategoryBody categoryBody) {
+        return ResponseEntity.ok(categoryService.addCategory(categoryBody));
     }
 }
